@@ -40,7 +40,7 @@ class handler(BaseHTTPRequestHandler):
         else:
             message = "Give me a word to define please"
 
-        message = str(dic)
+        message = str(query_string_list)
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')

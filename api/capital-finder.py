@@ -34,7 +34,7 @@ class handler(BaseHTTPRequestHandler):
         else:
             message = "Give me a word to define please"
 
-        message = "here"
+        message = str(url_components)
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')

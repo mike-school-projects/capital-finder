@@ -13,39 +13,45 @@ class handler(BaseHTTPRequestHandler):
         query_string_list = parse.parse_qsl(url_components.query)
         dic = dict(query_string_list)
 
-        # Query by country
-        if "country" in dic:
-            url = "https://restcountries.com/v3.1/name/" + dic["country"]
+        try:
+            # Query by country
+            if "country" in dic:
+                url = "https://restcountries.com/v3.1/name/" + dic["country"]
 
-            # Get data from API
-            response = requests.get(url)
+                # Get data from API
+                response = requests.get(url)
 
-            # convert to json
-            data = response.json()
+                # convert to json
+                data = response.json()
 
-            # Parse out capital
-            capital = data[0]['capital'][0]
+                # Parse out capital
+                capital = data[0]['capital'][0]
 
-            message = f'The capital of {dic["country"]} is {capital}'
+                message = f'The capital of {dic["country"]} is {capital}'
 
-        # Query by capital
-        elif "capital" in dic:
-            url = "https://restcountries.com/v3.1/capital/" + dic["capital"]
+            # Query by capital
+            elif "capital" in dic:
+                url = "https://restcountries.com/v3.1/capital/" + dic["capital"]
 
-            # Get data from API
-            response = requests.get(url)
+                # Get data from API
+                response = requests.get(url)
 
-            # convert to json
-            data = response.json()
+                # convert to json
+                data = response.json()
 
-            # Parse out country
-            country = data[0]['name']['common']
+                # Parse out country
+                country = data[0]['name']['common']
 
-            message = f'The capital of {country} is {dic["capital"]}'
+                message = f'The capital of {country} is {dic["capital"]}'
 
-        else:
-            message = "Need more info.  Query for capital or country"
+            # If query is something other than capital or country
+            else:
+                message = "Need more info.  Query for capital or country"
+        except:
+            message = "Bad info.  Too bad, so sad"
 
+
+        # If request returns a bad response
         if message == '':
             message = "Need more info.  Query for capital or country"
 

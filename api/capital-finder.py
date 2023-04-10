@@ -30,7 +30,7 @@ class handler(BaseHTTPRequestHandler):
 
         # Query by capital
         elif "capital" in dic:
-            url = "https://restcountries.com/v3.1/name/" + dic["capital"]
+            url = "https://restcountries.com/v3.1/capital/" + dic["capital"]
 
             # Get data from API
             # response = requests.get(url)

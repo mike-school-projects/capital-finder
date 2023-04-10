@@ -16,25 +16,19 @@ class handler(BaseHTTPRequestHandler):
 
         # Query by country
         if "country" in dic:
-            # Base URL
-            url = "https://restcountries.com/v3.1/name/"
+            url = "https://restcountries.com/v3.1/name/" + dic["country"]
 
-            # Get data from API using base URL plus country
-            r = requests.get(url + url_components.query)
+            # Get data from API using url
+            r = requests.get(url)
 
             # convert to json
             data = r.json()
 
-
             message = str(data)
-
 
         # Query by capital
         elif "capital" in dic:
             print("capital")
-
-
-        message = str(query_string_list)
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')

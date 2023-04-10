@@ -18,13 +18,13 @@ class handler(BaseHTTPRequestHandler):
         if "country" in dic:
             url = "https://restcountries.com/v3.1/name/" + dic["country"]
 
-            # Get data from API using url
-            r = requests.get(url)
+            # Get data from API
+            data = requests.get(url)
 
             # convert to json
-            data = r.json()
+            data = data.json()
 
-            message = str(data)
+            message = url
 
         # Query by capital
         elif "capital" in dic:

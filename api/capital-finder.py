@@ -36,13 +36,14 @@ class handler(BaseHTTPRequestHandler):
             response = requests.get(url)
 
             # convert to json
+            # good to here
             data = response.json()
 
             # Parse out country
-            # country = data[0]['name']['common']
+            country = data[0]['name']['common'][0]
 
             # message = f'The capital of {dic["capital"]} is {country}'
-            message = str(data)
+            message = str(country)
 
         else:
             message = "Need more info.  Query for capital or country"

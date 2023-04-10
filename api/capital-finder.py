@@ -33,18 +33,21 @@ class handler(BaseHTTPRequestHandler):
             url = "https://restcountries.com/v3.1/capital/" + dic["capital"]
 
             # Get data from API
-            # response = requests.get(url)
+            response = requests.get(url)
 
             # convert to json
-            # data = response.json()
+            data = response.json()
 
             # Parse out country
             # country = data[0]['name']['common']
 
             # message = f'The capital of {dic["capital"]} is {country}'
-            message = str(url)
+            message = str(data)
 
         else:
+            message = "Need more info.  Query for capital or country"
+
+        if message == '':
             message = "Need more info.  Query for capital or country"
 
         self.send_response(200)

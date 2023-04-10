@@ -33,7 +33,22 @@ class handler(BaseHTTPRequestHandler):
 
         # Query by capital
         elif "capital" in dic:
-            print("capital")
+            # Produces good URL
+            url = "https://restcountries.com/v3.1/name/" + dic["capital"]
+
+            # Get data from API
+            # Produces 200 status code
+            response = requests.get(url)
+
+            # convert to json
+            # Produces good data
+            data = response.json()
+
+            # Parse out capital
+            capital = data[0]['capital'][0]
+
+            message = f'The capital of {dic["country"]} is {capital}'
+            message = str(url)
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')

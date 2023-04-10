@@ -17,18 +17,19 @@ class handler(BaseHTTPRequestHandler):
         query_string_list = parse.parse_qsl(url_components.query)
         logging.warning(f'query_string_list: {query_string_list}')
 
-        # dic = dict(query_string_list)
+        dic = dict(query_string_list)
+        logging.warning(f'dic: {dic}')
 
         # Base URL
         url = "https://restcountries.com/v3.1/name/"
 
         # Get data from API using base URL plus country
-        r = requests.get(url + query_string_list)
-        logging.warning(f'r: {r}')
+        # r = requests.get(url + query_string_list)
+        # logging.warning(f'r: {r}')
 
         # Get data from API as json
-        data = r.json()
-        logging.warning(f'data: {data}')
+        # data = r.json()
+        # logging.warning(f'data: {data}')
 
         # message = str(query_string_list)
 

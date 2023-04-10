@@ -23,12 +23,13 @@ class handler(BaseHTTPRequestHandler):
             response = requests.get(url)
 
             # convert to json
+            # Produces good data
             data = response.json()
 
             # Parse out capital
             capital = data[0]['capital']
 
-            message = str(data)
+            message = str(capital)
 
         # Query by capital
         elif "capital" in dic:

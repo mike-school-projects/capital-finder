@@ -42,8 +42,8 @@ class handler(BaseHTTPRequestHandler):
             # Parse out country
             country = data[0]['name']['common'][0]
 
-            # message = f'The capital of {dic["capital"]} is {country}'
-            message = str(country)
+            message = f'The capital of {dic["capital"]} is {country}'
+            # message = str(country)
 
         else:
             message = "Need more info.  Query for capital or country"

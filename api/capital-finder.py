@@ -6,11 +6,13 @@ class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         path = self.path
 
-        # Parses url.  Example:
-        ## https://capital-finder-mike.vercel.app/api/capital-finder?test
-        ## SplitResult(scheme='', netloc='', path='/api/capital-finder', query='test', fragment='')
+        # Parses url
         url_components = parse.urlsplit(path)
+
+        # Converts query parameter to a pair of strings
         query_string_list = parse.parse_qsl(url_components.query)
+
+        # Converts to a dictionary
         dic = dict(query_string_list)
 
         try:
@@ -47,11 +49,12 @@ class handler(BaseHTTPRequestHandler):
             # If query is something other than capital or country
             else:
                 message = "Need more info.  Query for capital or country"
+
+        # If website error
         except:
             message = "Bad info.  Too bad, so sad"
 
-
-        # If request returns a bad response
+        # If request returns an empty response
         if message == '':
             message = "Need more info.  Query for capital or country"
 

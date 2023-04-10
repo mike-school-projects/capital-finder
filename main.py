@@ -6,7 +6,6 @@ query_string_list = parse.parse_qsl(url_components.query)
 dic = dict(query_string_list)
 
 url = "https://restcountries.com/v3.1/name/" + dic["country"]
-# url = "https://api.dictionaryapi.dev/api/v2/entries/en/python"
 data = requests.get(url)
 data = data.json()
 print(data[0]['capital'])

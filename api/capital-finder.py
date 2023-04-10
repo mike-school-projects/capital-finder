@@ -26,7 +26,7 @@ class handler(BaseHTTPRequestHandler):
             # Parse out capital
             capital = data[0]['capital']
 
-            message = capital
+            message = url
 
         # Query by capital
         elif "capital" in dic:

@@ -27,7 +27,7 @@ class handler(BaseHTTPRequestHandler):
             # Parse out capital
             capital = data[0]['capital']
 
-            message = response.status_code
+            message = str(response.status_code)
 
         # Query by capital
         elif "capital" in dic:

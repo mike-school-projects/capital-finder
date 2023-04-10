@@ -5,7 +5,13 @@ import requests
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         s = self.path
+
+        # Parses url.  Example:
+        ## https://capital-finder-mike.vercel.app/api/capital-finder?test
+        ## SplitResult(scheme='', netloc='', path='/api/capital-finder', query='test', fragment='')
         url_components = parse.urlsplit(s)
+
+        # Pulls out query
         query_string_list = parse.parse_qsl(url_components.query)
         dic = dict(query_string_list)
 
@@ -34,7 +40,7 @@ class handler(BaseHTTPRequestHandler):
         else:
             message = "Give me a word to define please"
 
-        message = str(url_components)
+        message = str(dic)
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')

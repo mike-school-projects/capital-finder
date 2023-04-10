@@ -14,7 +14,7 @@ class handler(BaseHTTPRequestHandler):
         dic = dict(query_string_list)
 
         # Query by country
-        if "country" in dic and False:
+        if "country" in dic:
             url = "https://restcountries.com/v3.1/name/" + dic["country"]
 
             # Get data from API
@@ -29,26 +29,23 @@ class handler(BaseHTTPRequestHandler):
             message = f'The capital of {dic["country"]} is {capital}'
 
         # Query by capital
-        elif "capital" in dic and False:
-            # Produces good URL
+        elif "capital" in dic:
             url = "https://restcountries.com/v3.1/name/" + dic["capital"]
 
             # Get data from API
-            response = requests.get(url)
+            # response = requests.get(url)
 
             # convert to json
-            data = response.json()
+            # data = response.json()
 
             # Parse out country
-            country = data[0]['name']['common']
+            # country = data[0]['name']['common']
 
-            message = f'The capital of {dic["capital"]} is {country}'
+            # message = f'The capital of {dic["capital"]} is {country}'
             message = str(url)
 
         else:
             message = "Need more info.  Query for capital or country"
-
-        message = str(dic)
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')

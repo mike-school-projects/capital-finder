@@ -23,5 +23,6 @@ N/A
 
 ## Tests
 
-https://capital-finder-mike.vercel.app/api/capital-finder?country=Chile
+[Search by Country](https://capital-finder-mike.vercel.app/api/capital-finder?country=Chile)
 
+[Search by Capital](https://capital-finder-mike.vercel.app/api/capital-finder?capital=Ottawa)

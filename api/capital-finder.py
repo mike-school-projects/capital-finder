@@ -24,7 +24,7 @@ class handler(BaseHTTPRequestHandler):
             # convert to json
             data = data.json()
 
-            message = url
+            message = data
 
         # Query by capital
         elif "capital" in dic:

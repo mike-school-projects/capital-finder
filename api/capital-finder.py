@@ -1,7 +1,6 @@
 from http.server import BaseHTTPRequestHandler
 from urllib import parse
 import requests
-import logging
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -24,7 +23,10 @@ class handler(BaseHTTPRequestHandler):
             # convert to json
             data = data.json()
 
-            message = data
+            # Parse out capital
+            capital = data[0]['capital']
+
+            message = capital
 
         # Query by capital
         elif "capital" in dic:

@@ -27,9 +27,9 @@ class handler(BaseHTTPRequestHandler):
             data = response.json()
 
             # Parse out capital
-            capital = data[0]['capital']
+            capital = data[0]['capital'][0]
 
-            message = str(capital)
+            message = f'The capital of {dic["country"]} is {capital}'
 
         # Query by capital
         elif "capital" in dic:

@@ -19,6 +19,7 @@ class handler(BaseHTTPRequestHandler):
             url = "https://restcountries.com/v3.1/name/" + dic["country"]
 
             # Get data from API
+            # Produces 200 status code
             response = requests.get(url)
 
             # convert to json
@@ -27,7 +28,7 @@ class handler(BaseHTTPRequestHandler):
             # Parse out capital
             capital = data[0]['capital']
 
-            message = str(response.status_code)
+            message = str(data)
 
         # Query by capital
         elif "capital" in dic:
